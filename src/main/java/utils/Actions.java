@@ -18,7 +18,7 @@ public class Actions {
     public String navigate(String url){
         try {
 
-            System.out.println(GRAY+"Navigating to "+RESET+BLUE+url+RESET);
+            System.out.println(GRAY+"\nNavigating to "+RESET+BLUE+url+RESET);
 
             if (!url.contains("http"))
                 url = "https://"+url;
