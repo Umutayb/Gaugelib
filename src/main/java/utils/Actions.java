@@ -1,19 +1,15 @@
 package utils;
 
 import com.gargoylesoftware.htmlunit.*;
-import com.github.webdriverextensions.WebDriverExtensionFieldDecorator;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.driver.Driver;
+import static utils.driver.Driver.*;
 import java.util.List;
 import static resources.Colors.*;
 import static resources.Colors.RESET;
-import static utils.driver.Driver.*;
 
 public class Actions {
 
@@ -144,6 +140,8 @@ public class Actions {
 
     //This method makes the thread wait for a certain while
     public void waitFor(int duration){
+        if (duration!=1)
+            System.out.println(GRAY+"Waiting for "+BLUE+duration+GRAY+" seconds"+RESET);
         try {
             Thread.sleep(duration* 1000L);
         }

@@ -9,8 +9,7 @@ public class TextParser {
 
         int firstIndex = 0;
 
-        List<String> lines = new ArrayList<>();
-        input.lines().forEach(lines::add);
+        String[] lines = input.split(System.getProperty("line.separator"));
 
         for (String line: lines) {
 

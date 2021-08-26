@@ -5,14 +5,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Driver {
 
-	public RemoteWebDriver setup(String browserName){
-		driver = DriverFactory.driverSetup(browserName, driver);
-		return driver;
-	}
-
 	public static RemoteWebDriver driver;
 
 	public static WebDriverWait wait;
 
-	public static void teardown(){driver.quit();}
+	public RemoteWebDriver setup(String browserName){
+		driver = DriverFactory.driverSetup(browserName, driver);
+		wait = new WebDriverWait(driver, 10);
+		return driver;
+	}
+
+	public void teardown(){driver.quit();}
 }
