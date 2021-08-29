@@ -1,24 +1,27 @@
 package utils;
 
-import com.gargoylesoftware.htmlunit.*;
-import org.json.simple.JSONObject;
-import org.junit.Assert;
-import org.openqa.selenium.*;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import static utils.driver.Driver.*;
-import java.util.List;
-import static resources.Colors.*;
+import org.openqa.selenium.interactions.Actions;
+import com.gargoylesoftware.htmlunit.*;
+import org.apache.commons.io.FileUtils;
 import static resources.Colors.RESET;
+import static utils.driver.Driver.*;
+import org.json.simple.JSONObject;
+import static resources.Colors.*;
+import org.openqa.selenium.*;
+import org.junit.Assert;
+import java.util.List;
+import java.io.File;
 
-public class Actions {
+
+public class Utilities {
 
     StringUtilities strUtils = new StringUtilities();
 
     public String navigate(String url){
         try {
 
-            System.out.println(GRAY+"\nNavigating to "+RESET+BLUE+url+RESET);
+            System.out.println(GRAY+"Navigating to "+RESET+BLUE+url+RESET);
 
             if (!url.contains("http"))
                 url = "https://"+url;
@@ -72,10 +75,13 @@ public class Actions {
     }
 
     //This method is for filling an input field, it waits for the element, scrolls to it, clears it and then fills it
-    public void clearFillInput(WebElement inputElement, String inputText){
+    public void clearFillInput(WebElement inputElement, String inputText, Boolean verify){
         try {
             // This method clears the input field before filling it
             clearInputField(centerElement(waitUntilElementIsVisible(inputElement, System.currentTimeMillis()))).sendKeys(inputText);
+
+            if (verify)
+                Assert.assertEquals(inputElement.getAttribute("value"), inputText);
 
         }catch (ElementNotFoundException e){
             Assert.fail(e.getMessage());
@@ -112,7 +118,7 @@ public class Actions {
 
         centerElement(element);
 
-        org.openqa.selenium.interactions.Actions builder = new org.openqa.selenium.interactions.Actions(driver);
+        Actions builder = new Actions(driver);
         builder.moveToElement(element)
                 .clickAndHold(element)
                 .dragAndDropBy
@@ -130,7 +136,7 @@ public class Actions {
 
         centerElement(element);
 
-        org.openqa.selenium.interactions.Actions builder = new org.openqa.selenium.interactions.Actions(driver);
+        Actions builder = new org.openqa.selenium.interactions.Actions(driver);
         builder.moveToElement(element, xOffset, yOffset)
                 .click()
                 .build()
@@ -325,6 +331,23 @@ public class Actions {
         } catch (Exception e) {
             System.out.println(e);
             return elementIsDisplayed(element, startTime);
+        }
+    }
+
+    public void captureScreen(String specName) {
+        try {
+            System.out.println(GRAY+"Capturing page"+RESET);
+
+            String name = specName+"#"+strUtils.randomNumber(1,10000)+".jpg";
+            File sourceFile = new File("Screenshots");
+            File fileDestination  = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(fileDestination, new File(sourceFile, name));
+
+            System.out.println(GRAY+"Screenshot saved as; "+name+" at the \"Screenshots\" file."+RESET);
+
+        }catch (Exception gamma){
+            Assert.fail(YELLOW+"Could not capture screen"+RED+"\n\t"+gamma+RESET);
+            driver.quit();
         }
     }
 }
