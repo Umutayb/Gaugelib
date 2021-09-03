@@ -6,12 +6,11 @@
 
   <groupId>bora</groupId>
   <artifactId>POM-Framework</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <packaging>jar</packaging>
 
-  <!-- FIXME change it to the project's website -->
-  <name>Page Object Model Automation Framework</name>
-  <url></url>
+  <name>Page Object Model Automation Framework (Gauge)</name>
+  <url>https://github.com/Umutayb/Gaugelib</url>
 
   <properties>
     <buildDirectory>${project.basedir}/out/artifacts/POM-Framework_jar</buildDirectory>
