@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
 
-    private static RemoteWebDriver webDriver;
     public static Properties properties = new Properties();
 
     public static RemoteWebDriver driverSetup(String driverName, RemoteWebDriver driver){
@@ -48,9 +47,8 @@ public class DriverFactory {
             driver = new RemoteWebDriver(new URL(properties.getProperty("hub.url")), capabilities);
             driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
             driver.manage().window().maximize();
-            webDriver = driver;
-
             System.out.println(PURPLE+driverName+GRAY+" was selected"+RESET);
+            return driver;
 
         }catch (Exception gamma) {
             if(gamma.toString().contains("Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure")){
@@ -61,8 +59,7 @@ public class DriverFactory {
                 Assert.fail(YELLOW+"Something went wrong while selecting a driver "+"\n\t"+RED+gamma+RESET);
             }
             driver.quit();
+            return null;
         }
-
-        return webDriver;
     }
 }

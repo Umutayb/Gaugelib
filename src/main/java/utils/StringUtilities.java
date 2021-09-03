@@ -1,16 +1,12 @@
 package utils;
 
 import org.apache.commons.lang3.RandomStringUtils;
-
-import java.io.File;
 import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static resources.Colors.GRAY;
-import static resources.Colors.RESET;
+import static resources.Colors.*;
 
 public class StringUtilities {   //Utility methods
 

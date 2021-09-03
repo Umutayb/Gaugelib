@@ -11,11 +11,10 @@ public class Driver {
 
 	Printer log = new Printer();
 
-	public RemoteWebDriver setup(String browserName){
+	public void setup(String browserName){
 		log.print("Initializing driver", "info");
 		driver = DriverFactory.driverSetup(browserName, driver);
 		wait = new WebDriverWait(driver, 10);
-		return driver;
 	}
 
 	public void teardown(){

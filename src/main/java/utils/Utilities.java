@@ -1,20 +1,22 @@
 package utils;
 
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.interactions.Actions;
 import com.gargoylesoftware.htmlunit.*;
 import org.apache.commons.io.FileUtils;
 import static resources.Colors.RESET;
-import static utils.driver.Driver.*;
 import org.json.simple.JSONObject;
 import static resources.Colors.*;
 import org.openqa.selenium.*;
 import org.junit.Assert;
+import utils.driver.Driver;
 import java.util.List;
 import java.io.File;
 
+public abstract class Utilities extends Driver {
 
-public class Utilities {
+    public Utilities(){PageFactory.initElements(driver, this);}
 
     StringUtilities strUtils = new StringUtilities();
 
