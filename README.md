@@ -1,5 +1,5 @@
 #Quickstart Library
-###For POM & Cucumber Projects
+###For POM & Gauge Projects
 ___
 ###How To Get Started:
 
