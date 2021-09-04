@@ -2,8 +2,8 @@
 ###For POM & Gauge Projects
 ___
 ###How To Get Started:
-
-First, the library should be exported into an empty automation project by using:
+#######Run ````gauge init java_maven_selenium```` to create a template gauge project.
+The library should be exported into an empty automation project by using:
 ```
 mvn clean package -DbuildDirectory=directory/to/project/lib
 ```
