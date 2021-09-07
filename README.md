@@ -14,14 +14,14 @@ mvn clean package -DbuildDirectory=/Users/Umut/Github/Web-Automation-Sample-Cucu
 There, the imported jar file should be added as a dependency in pom.xml file of that project:
 ```
 <!-- Framework -->
-        <dependency>
-            <groupId>bora</groupId>
-            <artifactId>POM-Framework-0.0.2.jar</artifactId>
-            <version>0.0.2</version>
-            <systemPath>${project.basedir}/lib/POM-FRAMEWORK-0.0.2.jar</systemPath>
-            <scope>system</scope>
-            <type>jar</type>
-        </dependency>
+<dependency>
+    <groupId>bora</groupId>
+    <artifactId>POM-Framework-0.0.2.jar</artifactId>
+    <version>0.0.2</version>
+    <systemPath>${project.basedir}/lib/POM-FRAMEWORK-0.0.2.jar</systemPath>
+    <scope>system</scope>
+    <type>jar</type>
+</dependency>
 ```
 After updating your project, the quickstart library is ready to use.
 ___
@@ -76,10 +76,10 @@ to extend the **Utilities** class. This also extends the **Driver** class, allow
 >   }
 >````
 > This will initialize the driver before each run, and kill it after each scenario is done. It will also
-> capture a ss if the scenario fails, indicating scenario name and failed step info.
+> capture the screen if the scenario fails, indicating scenario name and failed step info.
 
 ####Step 3: Create a spec package
->Create _**.spec**_ files, create your scenarios using the steps you have implemented in ***Step 2***.
+>Create _**.spec**_ files, write your scenarios using the steps you have implemented in ***Step 2***.
 
 ####Step 4: Execute your tests
 >######Selenium Grid needs to be running first, turn on Docker, then in project directory start Selenium Grid & Nodes by using the following command:

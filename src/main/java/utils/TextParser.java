@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class TextParser {
 
-    public static void main(String[] args) {
-        //Sample execution
+    public static void main(String[] args) {        //Sample execution
         TextParser textParser = new TextParser();
         System.out.println(textParser.parser("._","-","ajsKAagq5J3w._CoolButton-sg-j3yaG3 a3TGb"));
     }
