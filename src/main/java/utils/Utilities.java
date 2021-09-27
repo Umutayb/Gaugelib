@@ -1,5 +1,6 @@
 package utils;
 
+import com.github.webdriverextensions.WebDriverExtensionFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.interactions.Actions;
@@ -16,7 +17,7 @@ import java.io.File;
 
 public abstract class Utilities extends Driver {
 
-    public Utilities(){PageFactory.initElements(driver, this);}
+    public Utilities(){PageFactory.initElements(new WebDriverExtensionFieldDecorator(driver), this);}
 
     StringUtilities strUtils = new StringUtilities();
     NumericUtilities numeric = new NumericUtilities();

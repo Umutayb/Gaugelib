@@ -37,13 +37,17 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>3.141.59</version>
-      <scope>compile</scope>
+      <version>3.11.0</version>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>htmlunit-driver</artifactId>
       <version>2.20</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-api</artifactId>
+      <version>3.141.59</version>
     </dependency>
 
     <!-- Appium -->
@@ -131,18 +135,7 @@
       <version>3.8.1</version>
     </dependency>
 
-    <dependency>
-      <groupId>com.github.webdriverextensions</groupId>
-      <artifactId>webdriverextensions</artifactId>
-      <version>3.4.0</version>
-      <exclusions>
-        <exclusion>
-          <groupId>ch.qos.logback</groupId>
-          <artifactId>logback-classic</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
+    <!-- Assert -->
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
@@ -150,6 +143,12 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- Web Driver Extensions -->
+    <dependency>
+      <groupId>com.github.webdriverextensions</groupId>
+      <artifactId>webdriverextensions</artifactId>
+      <version>3.11.2</version>
+    </dependency>
   </dependencies>
 
   <repositories>
